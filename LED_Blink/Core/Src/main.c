@@ -32,6 +32,9 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
+#include "LedDriver.h"
+#include "ButtonDriver.h"
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -91,21 +94,8 @@ int main(void)
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
 
-
-  // AHB1 bus register'larınından 0. bitini set et, GPIOA clock'unu aktif et yani.
-  RCC->AHB1ENR |= 1UL;			// GPIOAEN
-  RCC->AHB1ENR |= (1UL << 2);	// GPIOCEN
-
-
-
-  // Port A ,  Moder5 binary 10 yapılmalı , output moduna almak için.
-  GPIOA->MODER |= (1UL << 2*5);			// 5. pin - High bit 1
-  GPIOA->MODER &= ~(1UL << (2*5 + 1));	// 5. pin - Low  bit 0
-
-
-  // Port C, Moder13 input için 00 yapılmalı, 27 ve 26. bitleri
-  GPIOC->MODER &= ~(1UL << (2*13 + 1));
-  GPIOC->MODER &= ~(1UL << (2*13));
+  LedDriver_init();
+  ButtonDriver_init();
 
 
 
@@ -116,28 +106,22 @@ int main(void)
   while (1)
   {
 
+	  // Bu driver fonksiyonları ile kodlar modüler bir hale getirilmiştir
+	  // main.c dosyası application katmanı olarak kullanılması , Modules içindeki
+	  // dosyaların ise register seviyesindeki kodlar için kullanılması sağlandı.
 
+	  if(ButtonDriver_get_state()){
 
-	  // B1 user butonu pull up direnci ile bağlı olduğundan butona basılınca değeri 0 olur.
-	  if(!(GPIOC->IDR & (1UL << 13))){
+		  HAL_Delay(20);	// Debounce önlemek için delay
 
+		  if(ButtonDriver_get_state()){
 
-		  HAL_Delay(20);
-
-		  if(!(GPIOC->IDR & (1UL << 13))){
-
-			  GPIOA->ODR |= (1UL << 5);		// 5. biti set etmek
-
+			  LedDriver_on();
 			  HAL_Delay(100);
 
-			  GPIOA->ODR &= ~(1UL << 5);	// 5. biti clear etmek
-
+			  LedDriver_off();
 			  HAL_Delay(100);
-
 		  }
-
-
-
 	  }
 
 

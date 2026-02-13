@@ -1,0 +1,2 @@
+../Drivers/Modules/ButtonDriver.c:12:6:ButtonDriver_init	4	static
+../Drivers/Modules/ButtonDriver.c:22:5:ButtonDriver_get_state	4	static
