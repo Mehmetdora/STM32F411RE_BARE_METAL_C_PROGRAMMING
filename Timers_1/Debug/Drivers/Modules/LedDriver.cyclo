@@ -1,0 +1,4 @@
+../Drivers/Modules/LedDriver.c:14:6:LedDriver_init	1
+../Drivers/Modules/LedDriver.c:25:6:LedDriver_on	1
+../Drivers/Modules/LedDriver.c:29:6:LedDriver_off	1
+../Drivers/Modules/LedDriver.c:33:6:LedDriver_toggle	1
