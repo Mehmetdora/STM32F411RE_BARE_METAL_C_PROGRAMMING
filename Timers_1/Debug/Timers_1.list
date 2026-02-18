@@ -37,15 +37,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  16 .debug_macro  0001431e  00000000  00000000  00003e58  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   00002d82  00000000  00000000  00018176  2**0
+ 17 .debug_line   00002d86  00000000  00000000  00018176  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    00080c08  00000000  00000000  0001aef8  2**0
+ 18 .debug_str    00080c08  00000000  00000000  0001aefc  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000043  00000000  00000000  0009bb00  2**0
+ 19 .comment      00000043  00000000  00000000  0009bb04  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  000005e8  00000000  00000000  0009bb44  2**2
+ 20 .debug_frame  000005e8  00000000  00000000  0009bb48  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_line_str 00000058  00000000  00000000  0009c12c  2**0
+ 21 .debug_line_str 00000058  00000000  00000000  0009c130  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -91,11 +91,11 @@ int main(void)
  80001dc:	f000 f8b2 	bl	8000344 <SysTickDriver_init>
     LedDriver_init();
  80001e0:	f000 f882 	bl	80002e8 <LedDriver_init>
-    while (1)
-    {
 
 
-
+    	// SysTickDriver.h dosyasında tanımlanan systick_counter değerini kontrol et, 1 ms az ise işlem yap
+    	// Bu systick_counter değişkeni interrupt fonksiyonu içerisinde arttırılıyor. Interrupt fonksiyonu
+    	// her 1 ms'de bir tetikleniyor.
         if (systick_counter >= 1000)
  80001e4:	4b05      	ldr	r3, [pc, #20]	@ (80001fc <main+0x24>)
  80001e6:	681b      	ldr	r3, [r3, #0]
@@ -534,6 +534,10 @@ void SysTickDriver_init(void){
  8000382:	4a04      	ldr	r2, [pc, #16]	@ (8000394 <SysTickDriver_init+0x50>)
  8000384:	f043 0304 	orr.w	r3, r3, #4
  8000388:	6013      	str	r3, [r2, #0]
+
+
+
+
 
 }
  800038a:	bf00      	nop

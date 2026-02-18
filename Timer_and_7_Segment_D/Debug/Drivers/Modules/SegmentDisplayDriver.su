@@ -1,0 +1,5 @@
+../Drivers/Modules/SegmentDisplayDriver.c:41:6:SegmentDisplayDriver_init	4	static
+../Drivers/Modules/SegmentDisplayDriver.c:70:6:SegmentDisplayDriver_toggle	4	static
+../Drivers/Modules/SegmentDisplayDriver.c:83:6:digitalWrite	16	static
+../Drivers/Modules/SegmentDisplayDriver.c:95:6:SegmentDisplayDriver_disable	16	static
+../Drivers/Modules/SegmentDisplayDriver.c:108:6:SegmentDisplayDriver_display	24	static
