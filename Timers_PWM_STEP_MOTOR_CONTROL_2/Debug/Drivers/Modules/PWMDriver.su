@@ -1,0 +1,4 @@
+../Drivers/Modules/PWMDriver.c:13:6:PWMDriver_init	8	static
+../Drivers/Modules/PWMDriver.c:96:6:PWMDriver_set_CCR1	16	static
+../Drivers/Modules/PWMDriver.c:104:6:PWMDriver_on	4	static
+../Drivers/Modules/PWMDriver.c:109:6:PWMDriver_off	4	static
