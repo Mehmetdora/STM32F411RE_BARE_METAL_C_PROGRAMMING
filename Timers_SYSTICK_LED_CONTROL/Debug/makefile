@@ -35,34 +35,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := Timers_1
+BUILD_ARTIFACT_NAME := Timers_SYSTICK_LED_CONTROL
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-Timers_1.elf \
+Timers_SYSTICK_LED_CONTROL.elf \
 
 MAP_FILES += \
-Timers_1.map \
+Timers_SYSTICK_LED_CONTROL.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-Timers_1.list \
+Timers_SYSTICK_LED_CONTROL.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: Timers_1.elf secondary-outputs
+main-build: Timers_SYSTICK_LED_CONTROL.elf secondary-outputs
 
 # Tool invocations
-Timers_1.elf Timers_1.map: $(OBJS) $(USER_OBJS) /Users/mehmet_dora/Desktop/STM32/Timers_1/STM32F411RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Timers_1.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/Users/mehmet_dora/Desktop/STM32/Timers_1/STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Timers_1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Timers_SYSTICK_LED_CONTROL.elf Timers_SYSTICK_LED_CONTROL.map: $(OBJS) $(USER_OBJS) /Users/mehmet_dora/Desktop/STM32/Timers_SYSTICK_LED_CONTROL/STM32F411RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Timers_SYSTICK_LED_CONTROL.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/Users/mehmet_dora/Desktop/STM32/Timers_SYSTICK_LED_CONTROL/STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Timers_SYSTICK_LED_CONTROL.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -71,14 +71,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-Timers_1.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "Timers_1.list"
+Timers_SYSTICK_LED_CONTROL.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "Timers_SYSTICK_LED_CONTROL.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) Timers_1.elf Timers_1.list Timers_1.map default.size.stdout
+	-$(RM) Timers_SYSTICK_LED_CONTROL.elf Timers_SYSTICK_LED_CONTROL.list Timers_SYSTICK_LED_CONTROL.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)

@@ -1,1 +1,2 @@
-../Drivers/Modules/SysTickDriver.c:14:6:SysTickDriver_init	4	static
+../Drivers/Modules/SysTickDriver.c:18:6:SysTickDriver_init	4	static
+../Drivers/Modules/SysTickDriver.c:54:6:Systick_Delay	16	static

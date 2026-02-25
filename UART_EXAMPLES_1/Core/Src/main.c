@@ -111,15 +111,18 @@ int main(void)
     /* USER CODE END WHILE */
 
 
-	  //char name[] = "emirhan\n";
-	  //uart_send_string(name);
+	  char name[] = "emirhan\n";
+	  uart_send_string(name);
+	  HAL_Delay(1000);
 
 
+	  /*
 	  gelen_data[0] = uart_read_char();
 	  gelen_data[1] = '\n';
 
 	  uart_send_string(gelen_data);
 	  HAL_Delay(1000);
+		*/
 
     /* USER CODE BEGIN 3 */
   }
