@@ -72,7 +72,7 @@ void uart_init(void){
 	 * Fraction = 12.576'dan -> 13 yani hex D
 	 */
 
-	USART2->BRR = (8UL << 4) | (11UL);		// eski değerlerlerin kalmaması için direkt = kullan
+	USART2->BRR = (22UL << 4) | (13UL);		// eski değerlerin kalmaması için direkt = kullan
 
 
 
@@ -217,6 +217,8 @@ void uart_send_string_IT(char* data){
 }
 
 
+
+
 // UART2 Interrupt Handler
 void USART2_IRQHandler(void){
 
@@ -278,22 +280,6 @@ void USART2_IRQHandler(void){
 
 
 }
-
-
-
-
-
-
-// HELP Fonctions
-
-void str_len(char str[]){
-	uint32_t len = 0;
-	while(str[len] != '\0'){
-		len++;
-	}
-	return (len - 1);		// sondaki end karakterini çıkar
-}
-
 
 
 

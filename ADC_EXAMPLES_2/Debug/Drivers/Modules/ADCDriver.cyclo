@@ -1,0 +1,2 @@
+../Drivers/Modules/ADCDriver.c:11:6:ADC_init	5
+../Drivers/Modules/ADCDriver.c:60:5:ADC_get_analog_value	2
