@@ -61,6 +61,7 @@ void uart_init(void){
 	 * Sonuç olarak bulunan USARTDIV = 22.786(22 -> mantissa, 0.786 -> fraction)
 	 * Mantissa = 22
 	 * Fraction = 12.576'dan -> 13 yani hex D
+	 * BRR = (Mantissa << 4) | Fraction
 	 */
 
 	USART2->BRR = (22UL << 4) | (13UL);		// eski değerlerlerin kalmaması için direkt = kullan
