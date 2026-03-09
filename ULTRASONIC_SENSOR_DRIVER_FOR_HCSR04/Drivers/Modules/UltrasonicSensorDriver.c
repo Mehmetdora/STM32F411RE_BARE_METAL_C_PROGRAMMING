@@ -76,9 +76,9 @@ void HCSR_04_init(void){
 
 
 void HCSR_04_start(void){
-	GPIOA->BSRR = (1UL << 0);   // TRIG HIGH
-	delay_us(10);
-	GPIOA->BSRR = (1UL << 16);  // TRIG LOW
+	GPIOA->BSRR = (1UL << 0);   // TRIG pinini HIGH yap
+	delay_us(10);				// 10 mikrosaniye delay
+	GPIOA->BSRR = (1UL << 16);  // TRIG pinini LOW yap
 }
 
 void HCSR_04_stop(void){
