@@ -1,0 +1,5 @@
+../Drivers/Modules/LEDDriver.c:12:6:LEDDriver_init	4	static
+../Drivers/Modules/LEDDriver.c:25:6:LEDDriver_on	4	static
+../Drivers/Modules/LEDDriver.c:30:6:LEDDriver_off	4	static
+../Drivers/Modules/LEDDriver.c:37:6:LEDDriver_blink	16	static
+../Drivers/Modules/LEDDriver.c:44:6:LEDDriver_toggle	4	static

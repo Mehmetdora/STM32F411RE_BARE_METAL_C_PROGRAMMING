@@ -1,0 +1,2 @@
+../Drivers/App/DoorLockApp.c:43:6:DoorLockApp_init	8	static
+../Drivers/App/DoorLockApp.c:53:6:DoorLockApp_start	16	static
