@@ -13,7 +13,7 @@
 
 #include <stdint.h>
 
-
+// uygulamada kullanılacak state'lerin tanımlanması
 typedef enum {
 	STATE_LOCKED,
 	STATE_ENTERING,
@@ -23,6 +23,9 @@ typedef enum {
 
 
 static APP_STATE_t state;
+
+
+// State'ler için ölçümlerde kullanılan değişkenler
 uint32_t last_blink_time_entering = 0;
 uint32_t last_blink_time_alarm = 0;
 uint8_t current_pressed = 0;
@@ -40,7 +43,7 @@ uint32_t unlocked_wait_time = 0;
 uint32_t alarm_wait_time = 0;
 
 
-void DoorLockApp_init(void){
+void DoorLockApp_init(void){		// Uygulamanın çalışması için gereken bağımlılıkların ayarlanması
 
 	ButtonDriver_init();
 	LEDDriver_init();
@@ -50,18 +53,33 @@ void DoorLockApp_init(void){
 
 
 
-void DoorLockApp_start(void){
+void DoorLockApp_start(void){		// Sürekli çalışacak app
 
 
 	uint32_t now = HAL_GetTick();
 	uint8_t button_pressed = 0;
 	current_pressed = ButtonDriver_read();
 
-	if(current_pressed == 0 && last_pressed == 1){
+	if(current_pressed == 0 && last_pressed == 1){	// Her butona basılmasını kontrol etme
 		button_pressed = 1;
 	}
 
-	switch(state){
+
+	/*
+	 * Her state kendi içinde sürekli çalışabilmeli, yani bit bağımlılığa yada tetiklemeye bağlı kalmadan da
+	 * sürekli olarak çalışabilmeli.
+	 *
+	 * Başka bir state e geçebilmek için mevcut state durumunda iken bir event kontrolü yapılarak koşulun
+	 * sağlanması halinde state güncellenmeli
+	 *
+	 * Her state için olası tüm durumlar düşünülmeli ve buna göre bu state geçişleri kodlanmalı
+	 *
+	 * State'ler arasında geçişler yapılırken önceki ve sonraki state için kontrol edilecek değişkenlerin
+	 * değerleri doğru yerlerde set veya reset edilmeli
+	 *
+	 *
+	 */
+	switch(state){			// Her state için özel çalışacak kodların tanımlanması
 
 	case STATE_LOCKED:
 

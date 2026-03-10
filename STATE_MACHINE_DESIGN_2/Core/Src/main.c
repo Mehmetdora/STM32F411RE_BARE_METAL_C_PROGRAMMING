@@ -28,7 +28,7 @@ int main(void)
   {
 
 
-	  DoorLockApp_start();
+	  DoorLockApp_start();		// Uygulamanın sürekli çalışması, sürekli state'ler arasında geçişlerin yapılması
 
 
 
