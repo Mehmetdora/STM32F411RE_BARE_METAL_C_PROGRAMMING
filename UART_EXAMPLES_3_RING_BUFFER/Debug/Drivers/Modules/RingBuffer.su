@@ -1,0 +1,5 @@
+../Drivers/Modules/RingBuffer.c:12:6:ring_buffer_setup	24	static
+../Drivers/Modules/RingBuffer.c:22:9:ring_buffer_is_empty	16	static
+../Drivers/Modules/RingBuffer.c:28:9:ring_buffer_read	24	static
+../Drivers/Modules/RingBuffer.c:47:9:ring_buffer_write	24	static
+../Drivers/Modules/RingBuffer.c:78:10:ring_buffer_next_index	16	static
