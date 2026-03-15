@@ -1,0 +1,2 @@
+../Drivers/Modules/DMADriver.c:14:6:DMADriver_init	4	static
+../Drivers/Modules/DMADriver.c:46:6:DMADriver_start	4	static
