@@ -1,0 +1,7 @@
+../Drivers/CMSIS/Include/core_cm4.h:1684:22:__NVIC_EnableIRQ	16	static,ignoring_inline_asm
+../Drivers/Modules/UARTDriver.c:24:6:UARTDriver_init	8	static
+../Drivers/Modules/UARTDriver.c:109:6:UARTDriver_send_string	16	static
+../Drivers/Modules/UARTDriver.c:123:6:UARTDriver_send_byte	16	static
+../Drivers/Modules/UARTDriver.c:147:9:UARTDriver_read	16	static
+../Drivers/Modules/UARTDriver.c:161:9:UARTDriver_data_is_available	8	static
+../Drivers/Modules/UARTDriver.c:173:6:USART2_IRQHandler	16	static

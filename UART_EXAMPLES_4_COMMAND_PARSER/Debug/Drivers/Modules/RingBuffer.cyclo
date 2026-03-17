@@ -1,0 +1,6 @@
+../Drivers/Modules/RingBuffer.c:12:6:ring_buffer_setup	1
+../Drivers/Modules/RingBuffer.c:20:6:ring_buffer_clear	1
+../Drivers/Modules/RingBuffer.c:25:9:ring_buffer_is_empty	1
+../Drivers/Modules/RingBuffer.c:31:9:ring_buffer_read	2
+../Drivers/Modules/RingBuffer.c:50:9:ring_buffer_write	2
+../Drivers/Modules/RingBuffer.c:81:10:ring_buffer_next_index	2
