@@ -1,0 +1,9 @@
+../Core/Src/main.c:26:5:main	1
+../Core/Src/main.c:78:6:readButtonStateTask_Handler	4
+../Core/Src/main.c:96:6:ledFlashTask_Handler	6
+../Core/Src/main.c:140:6:setup	1
+../Core/Src/main.c:166:6:SystemClock_Config	3
+../Core/Src/main.c:213:13:MX_USART2_UART_Init	2
+../Core/Src/main.c:246:13:MX_GPIO_Init	1
+../Core/Src/main.c:292:6:HAL_TIM_PeriodElapsedCallback	2
+../Core/Src/main.c:310:6:Error_Handler	1
