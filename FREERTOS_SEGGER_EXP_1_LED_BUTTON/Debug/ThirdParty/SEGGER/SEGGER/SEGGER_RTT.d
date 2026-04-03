@@ -1,6 +1,6 @@
 ThirdParty/SEGGER/SEGGER/SEGGER_RTT.o: \
  ../ThirdParty/SEGGER/SEGGER/SEGGER_RTT.c \
  ../ThirdParty/SEGGER/SEGGER/SEGGER_RTT.h \
- /Users/mehmet_dora/STM32CubeIDE/workspace_2.0.0/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/SEGGER/Config/SEGGER_RTT_Conf.h
+ /Users/mehmet_dora/Desktop/STM32/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/SEGGER/Config/SEGGER_RTT_Conf.h
 ../ThirdParty/SEGGER/SEGGER/SEGGER_RTT.h:
-/Users/mehmet_dora/STM32CubeIDE/workspace_2.0.0/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/SEGGER/Config/SEGGER_RTT_Conf.h:
+/Users/mehmet_dora/Desktop/STM32/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/SEGGER/Config/SEGGER_RTT_Conf.h:

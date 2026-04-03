@@ -181,4 +181,5 @@
 			<resource resourceType="PROJECT" workspacePath="/UART_EXAMPLES_3_RING_BUFFER"/>
 		</configuration>
 	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
 </cproject>

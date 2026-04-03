@@ -181,4 +181,5 @@
 			<resource resourceType="PROJECT" workspacePath="/ADC_EXAMPLES_1"/>
 		</configuration>
 	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
 </cproject>

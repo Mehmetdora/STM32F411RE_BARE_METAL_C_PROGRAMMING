@@ -181,4 +181,5 @@
 			<resource resourceType="PROJECT" workspacePath="/ULTRASONIC_SENSOR_DRIVER_FOR_HCSR04"/>
 		</configuration>
 	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
 </cproject>

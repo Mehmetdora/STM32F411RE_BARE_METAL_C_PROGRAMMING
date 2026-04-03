@@ -1,26 +1,26 @@
 ThirdParty/SEGGER/Config/SEGGER_SYSVIEW_Config_FreeRTOS.o: \
  ../ThirdParty/SEGGER/Config/SEGGER_SYSVIEW_Config_FreeRTOS.c \
- /Users/mehmet_dora/STM32CubeIDE/workspace_2.0.0/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/FreeRTOS/org/Source/include/FreeRTOS.h \
- /Users/mehmet_dora/STM32CubeIDE/workspace_2.0.0/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/FreeRTOS/org/Source/FreeRTOSConfig.h \
+ /Users/mehmet_dora/Desktop/STM32/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/FreeRTOS/org/Source/include/FreeRTOS.h \
+ /Users/mehmet_dora/Desktop/STM32/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/FreeRTOS/org/Source/FreeRTOSConfig.h \
  ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h \
- /Users/mehmet_dora/STM32CubeIDE/workspace_2.0.0/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h \
- /Users/mehmet_dora/STM32CubeIDE/workspace_2.0.0/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/SEGGER/SEGGER/SEGGER_SYSVIEW.h \
- /Users/mehmet_dora/STM32CubeIDE/workspace_2.0.0/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/SEGGER/SEGGER/SEGGER.h \
- /Users/mehmet_dora/STM32CubeIDE/workspace_2.0.0/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/SEGGER/Config/Global.h \
- /Users/mehmet_dora/STM32CubeIDE/workspace_2.0.0/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/FreeRTOS/org/Source/include/projdefs.h \
- /Users/mehmet_dora/STM32CubeIDE/workspace_2.0.0/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/FreeRTOS/org/Source/include/portable.h \
- /Users/mehmet_dora/STM32CubeIDE/workspace_2.0.0/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/FreeRTOS/org/Source/include/deprecated_definitions.h \
- /Users/mehmet_dora/STM32CubeIDE/workspace_2.0.0/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/FreeRTOS/org/Source/portable/GCC/ARM_CM4F/portmacro.h \
- /Users/mehmet_dora/STM32CubeIDE/workspace_2.0.0/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/FreeRTOS/org/Source/include/mpu_wrappers.h
-/Users/mehmet_dora/STM32CubeIDE/workspace_2.0.0/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/FreeRTOS/org/Source/include/FreeRTOS.h:
-/Users/mehmet_dora/STM32CubeIDE/workspace_2.0.0/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/FreeRTOS/org/Source/FreeRTOSConfig.h:
+ /Users/mehmet_dora/Desktop/STM32/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h \
+ /Users/mehmet_dora/Desktop/STM32/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/SEGGER/SEGGER/SEGGER_SYSVIEW.h \
+ /Users/mehmet_dora/Desktop/STM32/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/SEGGER/SEGGER/SEGGER.h \
+ /Users/mehmet_dora/Desktop/STM32/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/SEGGER/Config/Global.h \
+ /Users/mehmet_dora/Desktop/STM32/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/FreeRTOS/org/Source/include/projdefs.h \
+ /Users/mehmet_dora/Desktop/STM32/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/FreeRTOS/org/Source/include/portable.h \
+ /Users/mehmet_dora/Desktop/STM32/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/FreeRTOS/org/Source/include/deprecated_definitions.h \
+ /Users/mehmet_dora/Desktop/STM32/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/FreeRTOS/org/Source/portable/GCC/ARM_CM4F/portmacro.h \
+ /Users/mehmet_dora/Desktop/STM32/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/FreeRTOS/org/Source/include/mpu_wrappers.h
+/Users/mehmet_dora/Desktop/STM32/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/FreeRTOS/org/Source/include/FreeRTOS.h:
+/Users/mehmet_dora/Desktop/STM32/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/FreeRTOS/org/Source/FreeRTOSConfig.h:
 ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h:
-/Users/mehmet_dora/STM32CubeIDE/workspace_2.0.0/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:
-/Users/mehmet_dora/STM32CubeIDE/workspace_2.0.0/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/SEGGER/SEGGER/SEGGER_SYSVIEW.h:
-/Users/mehmet_dora/STM32CubeIDE/workspace_2.0.0/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/SEGGER/SEGGER/SEGGER.h:
-/Users/mehmet_dora/STM32CubeIDE/workspace_2.0.0/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/SEGGER/Config/Global.h:
-/Users/mehmet_dora/STM32CubeIDE/workspace_2.0.0/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/FreeRTOS/org/Source/include/projdefs.h:
-/Users/mehmet_dora/STM32CubeIDE/workspace_2.0.0/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/FreeRTOS/org/Source/include/portable.h:
-/Users/mehmet_dora/STM32CubeIDE/workspace_2.0.0/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/FreeRTOS/org/Source/include/deprecated_definitions.h:
-/Users/mehmet_dora/STM32CubeIDE/workspace_2.0.0/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/FreeRTOS/org/Source/portable/GCC/ARM_CM4F/portmacro.h:
-/Users/mehmet_dora/STM32CubeIDE/workspace_2.0.0/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/FreeRTOS/org/Source/include/mpu_wrappers.h:
+/Users/mehmet_dora/Desktop/STM32/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:
+/Users/mehmet_dora/Desktop/STM32/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/SEGGER/SEGGER/SEGGER_SYSVIEW.h:
+/Users/mehmet_dora/Desktop/STM32/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/SEGGER/SEGGER/SEGGER.h:
+/Users/mehmet_dora/Desktop/STM32/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/SEGGER/Config/Global.h:
+/Users/mehmet_dora/Desktop/STM32/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/FreeRTOS/org/Source/include/projdefs.h:
+/Users/mehmet_dora/Desktop/STM32/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/FreeRTOS/org/Source/include/portable.h:
+/Users/mehmet_dora/Desktop/STM32/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/FreeRTOS/org/Source/include/deprecated_definitions.h:
+/Users/mehmet_dora/Desktop/STM32/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/FreeRTOS/org/Source/portable/GCC/ARM_CM4F/portmacro.h:
+/Users/mehmet_dora/Desktop/STM32/FREERTOS_SEGGER_EXP_1_LED_BUTTON/ThirdParty/FreeRTOS/org/Source/include/mpu_wrappers.h:

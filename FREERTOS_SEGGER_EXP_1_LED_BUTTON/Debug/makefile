@@ -66,8 +66,8 @@ all: main-build
 main-build: FREERTOS_SEGGER_EXP_1_LED_BUTTON.elf secondary-outputs
 
 # Tool invocations
-FREERTOS_SEGGER_EXP_1_LED_BUTTON.elf FREERTOS_SEGGER_EXP_1_LED_BUTTON.map: $(OBJS) $(USER_OBJS) /Users/mehmet_dora/STM32CubeIDE/workspace_2.0.0/FREERTOS_SEGGER_EXP_1_LED_BUTTON/STM32F411RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "FREERTOS_SEGGER_EXP_1_LED_BUTTON.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/Users/mehmet_dora/STM32CubeIDE/workspace_2.0.0/FREERTOS_SEGGER_EXP_1_LED_BUTTON/STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FREERTOS_SEGGER_EXP_1_LED_BUTTON.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+FREERTOS_SEGGER_EXP_1_LED_BUTTON.elf FREERTOS_SEGGER_EXP_1_LED_BUTTON.map: $(OBJS) $(USER_OBJS) /Users/mehmet_dora/Desktop/STM32/FREERTOS_SEGGER_EXP_1_LED_BUTTON/STM32F411RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "FREERTOS_SEGGER_EXP_1_LED_BUTTON.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/Users/mehmet_dora/Desktop/STM32/FREERTOS_SEGGER_EXP_1_LED_BUTTON/STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FREERTOS_SEGGER_EXP_1_LED_BUTTON.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
