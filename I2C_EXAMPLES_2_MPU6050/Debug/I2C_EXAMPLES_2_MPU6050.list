@@ -37,11 +37,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  16 .debug_macro  000166d4  00000000  00000000  0001173e  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   0000930f  00000000  00000000  00027e12  2**0
+ 17 .debug_line   00009311  00000000  00000000  00027e12  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    00087966  00000000  00000000  00031121  2**0
+ 18 .debug_str    00087966  00000000  00000000  00031123  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000043  00000000  00000000  000b8a87  2**0
+ 19 .comment      00000043  00000000  00000000  000b8a89  2**0
                   CONTENTS, READONLY
  20 .debug_frame  00002e00  00000000  00000000  000b8acc  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
@@ -1268,9 +1268,10 @@ int main(void)
  8000f18:	f000 fb20 	bl	800155c <I2C1_init>
   MPU_init();
  8000f1c:	f000 fca0 	bl	8001860 <MPU_init>
-
-  while (1)
-  {
+	   * çevrilmesi için işlemler yapılıyor fakat filtreleme vs. yapılmıyor
+	   *
+	   * Bu veriler sonrasında usart üzerinden bilgisayarda izlenebiliyor
+	   */
 
 	  MPU6050_ReadAccel(accel);
  8000f20:	f107 0344 	add.w	r3, r7, #68	@ 0x44

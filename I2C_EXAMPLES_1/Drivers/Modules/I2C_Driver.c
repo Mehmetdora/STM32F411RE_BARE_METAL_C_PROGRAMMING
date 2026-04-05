@@ -60,7 +60,17 @@ void I2C1_init(void){
 
 }
 
-
+/*
+ * Bir cihazdan veri okunacağı zaman önce hangi adresinden verinin okunacağı write
+ * modunda iken gönderiliyor, sonrasında eğer bu adresten veri okunacaksa write modundan
+ * read moduna geçilmesi gerekiyor. Bu işlem stop ile de yapılabilir fakat o zaman
+ * iletişim kopar ve hatta başka cihazlar girebilir, bunu önlemek ve modu iletişimi
+ * durdurmadan değiştirmek için restart yapılır, bu sefer read modunda iletişim başlatılır
+ * ve ilgili adresten veriler okunabilir. En sonda da stop ile bitirilir.
+ *
+ * Eğer bir adresten veri okumak yerine oraya yazılacaksa write modunda iletişim başlatılır
+ * fakat restart yapmadan tekrar aynı modda yazılmaya devam edilebilir.
+ */
 
 void I2C1_ByteRead(char saddr, char maddr, char* data){
 	/*
@@ -68,6 +78,19 @@ void I2C1_ByteRead(char saddr, char maddr, char* data){
 	maddr → Okunacak cihazın memory adresi (örneğin: 0x75)
 	data → Okunan verinin yazılacağı pointer
 	*/
+
+	/*
+	 * 1- SR2 den Busy bit kontrolü
+	 * 2- CR1 start bit gönderme ve set edilmesini bekleme
+	 * 3- Slave adresinin write modda gönderilmesi
+	 * 4- Slave den ACK beklenmesi ve geldikten sonra ADDR flag clear edilmesi(SR2 den değer okunması)
+	 * 5- Slave e okunacak register adresinin gönderilmesi ve TxE ile gönderildiğinin doğrulanması
+	 * 6- restart yapılması, önce write ile adres gönderildi, bundan sonra read yapılacak
+	 * 7- Slave adresinin read modda gönderilmesi ve doğrulanması
+	 * 8- ACK disaable edilmesi, NACK gönderilerek iletişimin bitirilmesi
+	 * 9- ADDR flag temizleme ve STOP bitinin gönderilmesi
+	 * 10- Verinin gelmesini RXNE ile beklenmesi ve verinin alınması
+	 */
 
 
 	volatile int tmp;
@@ -336,6 +359,20 @@ void I2C1_BurstRead(char saddr, char maddr, int n, char* data){
 
 
 
+
+
+
+/*
+ * Bu write fonksiyonunda ise write modunda adres gönderilir, sonrasında peş peşe
+ * adreslere yazılmak istenen veriler gönderilir. yani tek bir transaction için
+ * birden fazla veri gönderilir. Bunu yapmak için biz burada for ile her veri gittiğinde
+ * sonraki veriyi pointer ile gösteriyoruz , slave cihaz ise kendi özelliği olan
+ * auto-increment ile eğer birden fazla(2. bir veri) gelmiş ise kendisi bu sonraki
+ * verinin geleceği adresi gösteriyor.
+ *
+ * bu sayede tek seferde blok veri gönderilmiş olunuyor. En son BTF ile tüm verinin
+ * gönderildiği teyit ediliyor ve iletişim bitiriliyor.
+ */
 void I2C1_BurstWrite(char saddr, char maddr, int n, char* data){
 
 	// Bir slave cihaza belirtilen adresten başlayarak n byte veri yazar.
