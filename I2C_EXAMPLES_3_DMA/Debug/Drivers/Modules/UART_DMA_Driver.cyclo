@@ -1,0 +1,6 @@
+../Drivers/CMSIS/Include/core_cm4.h:1684:22:__NVIC_EnableIRQ	2
+../Drivers/CMSIS/Include/core_cm4.h:1814:22:__NVIC_SetPriority	2
+../Drivers/Modules/UART_DMA_Driver.c:27:6:UART_init	1
+../Drivers/Modules/UART_DMA_Driver.c:107:6:UART_tx_DMA_stream0_init	2
+../Drivers/Modules/UART_DMA_Driver.c:144:6:UART2_send_packet	3
+../Drivers/Modules/UART_DMA_Driver.c:175:6:DMA1_Stream6_IRQHandler	2

@@ -10,6 +10,9 @@
 
 #include "stdint.h"
 
+
+extern volatile uint32_t counter;
+
 void TimerDriver_init(void);
 void TimerDriver_enable(void);
 void TimerDriver_disable(void);

@@ -9,7 +9,11 @@
 #include "stm32f4xx.h"
 #include "stdint.h"
 #include "TimerDriver.h"
+#include "I2C_Driver.h"
 #include "I2C_DMA_Driver.h"
+
+
+
 
 #define MPU6050_ADDR  (0x68)
 #define ACCEL_START   0x3B
@@ -99,17 +103,12 @@ void TIM2_IRQHandler(void){
 
 
 		// Her timer interrupt tetiklendiğinde yani 1 sn aralıklarla sensör okuma başlatılsın
-		I2C1_BurstRead_Blocking(MPU6050_ADDR, ACCEL_START, RAW_BUFFER_SIZE);
+		I2C1_BurstRead(MPU6050_ADDR, ACCEL_START, RAW_BUFFER_SIZE);
 
 
 
-		// Her 10 saniyede bir başa dönmeli
+		// Her 30 saniyede bir buffer da toplanan veriler esp32 ye aktarılacak
 		counter++;
-		if(counter >= 29){
-			counter = 0;
-			circ_index = 0;
-			uart_tx_ready = 1;
-		}
 
 		GPIOA->ODR ^= (1UL << 5);
 

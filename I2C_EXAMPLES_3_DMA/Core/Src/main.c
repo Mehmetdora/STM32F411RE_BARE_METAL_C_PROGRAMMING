@@ -1,5 +1,7 @@
 #include "main.h"
+#include "I2C_Driver.h"
 #include "I2C_DMA_Driver.h"
+#include "UART_DMA_Driver.h"
 #include "TimerDriver.h"
 
 
@@ -27,8 +29,14 @@ int main(void)
 
 
 
-  I2C_DMA_init();
+  I2C1_init();
+  UART_init();
+  MPU6050_wakeup(MPU6050_ADDR);
+
+
+  UART_tx_DMA_stream0_init();
   I2C1_rx_DMA_stream0_init();
+
   TimerDriver_init();
 
 
@@ -36,26 +44,11 @@ int main(void)
   while (1)
   {
 
-	  /*
-	  if (dma_transfer_done) {
-		  dma_transfer_done = 0;
 
-		  // RX_BUFFER içeriğini yorumla
-		  int16_t accel_x = (RX_BUFFER[0]  << 8) | RX_BUFFER[1];
-		  int16_t accel_y = (RX_BUFFER[2]  << 8) | RX_BUFFER[3];
-		  int16_t accel_z = (RX_BUFFER[4]  << 8) | RX_BUFFER[5];
-		  int16_t temp    = (RX_BUFFER[6]  << 8) | RX_BUFFER[7];
-		  int16_t gyro_x  = (RX_BUFFER[8]  << 8) | RX_BUFFER[9];
-		  int16_t gyro_y  = (RX_BUFFER[10] << 8) | RX_BUFFER[11];
-		  int16_t gyro_z  = (RX_BUFFER[12] << 8) | RX_BUFFER[13];
-
-		  // Verilerle istediğini yap (UART'a gönder, filtrele, vs.)
-
-		  // Yeni okuma başlat — circular buffer gibi sürekli çalışır
-		  I2C1_BurstRead_DMA(MPU6050_ADDR, ACCEL_START, RX_BUFFER_SIZE);
+	  if (uart_tx_ready) {
+		  uart_tx_ready = 0;				// iletim sürerken 2. kez buraya girmesin diye hemen kapat
+		  UART2_send_packet(CIRC_BUFFER);
 	  }
-	  */
-
 
   }
   /* USER CODE END 3 */

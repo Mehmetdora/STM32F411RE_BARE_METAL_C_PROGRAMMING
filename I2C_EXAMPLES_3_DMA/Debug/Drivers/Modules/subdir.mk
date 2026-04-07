@@ -6,15 +6,21 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../Drivers/Modules/I2C_DMA_Driver.c \
-../Drivers/Modules/TimerDriver.c 
+../Drivers/Modules/I2C_Driver.c \
+../Drivers/Modules/TimerDriver.c \
+../Drivers/Modules/UART_DMA_Driver.c 
 
 OBJS += \
 ./Drivers/Modules/I2C_DMA_Driver.o \
-./Drivers/Modules/TimerDriver.o 
+./Drivers/Modules/I2C_Driver.o \
+./Drivers/Modules/TimerDriver.o \
+./Drivers/Modules/UART_DMA_Driver.o 
 
 C_DEPS += \
 ./Drivers/Modules/I2C_DMA_Driver.d \
-./Drivers/Modules/TimerDriver.d 
+./Drivers/Modules/I2C_Driver.d \
+./Drivers/Modules/TimerDriver.d \
+./Drivers/Modules/UART_DMA_Driver.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -24,7 +30,7 @@ Drivers/Modules/%.o Drivers/Modules/%.su Drivers/Modules/%.cyclo: ../Drivers/Mod
 clean: clean-Drivers-2f-Modules
 
 clean-Drivers-2f-Modules:
-	-$(RM) ./Drivers/Modules/I2C_DMA_Driver.cyclo ./Drivers/Modules/I2C_DMA_Driver.d ./Drivers/Modules/I2C_DMA_Driver.o ./Drivers/Modules/I2C_DMA_Driver.su ./Drivers/Modules/TimerDriver.cyclo ./Drivers/Modules/TimerDriver.d ./Drivers/Modules/TimerDriver.o ./Drivers/Modules/TimerDriver.su
+	-$(RM) ./Drivers/Modules/I2C_DMA_Driver.cyclo ./Drivers/Modules/I2C_DMA_Driver.d ./Drivers/Modules/I2C_DMA_Driver.o ./Drivers/Modules/I2C_DMA_Driver.su ./Drivers/Modules/I2C_Driver.cyclo ./Drivers/Modules/I2C_Driver.d ./Drivers/Modules/I2C_Driver.o ./Drivers/Modules/I2C_Driver.su ./Drivers/Modules/TimerDriver.cyclo ./Drivers/Modules/TimerDriver.d ./Drivers/Modules/TimerDriver.o ./Drivers/Modules/TimerDriver.su ./Drivers/Modules/UART_DMA_Driver.cyclo ./Drivers/Modules/UART_DMA_Driver.d ./Drivers/Modules/UART_DMA_Driver.o ./Drivers/Modules/UART_DMA_Driver.su
 
 .PHONY: clean-Drivers-2f-Modules
 

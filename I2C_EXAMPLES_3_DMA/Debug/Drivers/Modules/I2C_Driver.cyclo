@@ -1,0 +1,4 @@
+../Drivers/Modules/I2C_Driver.c:16:6:I2C1_init	1
+../Drivers/Modules/I2C_Driver.c:70:6:I2C1_BurstRead	8
+../Drivers/Modules/I2C_Driver.c:132:6:I2C1_BurstWrite	8
+../Drivers/Modules/I2C_Driver.c:215:6:MPU6050_wakeup	1

@@ -1,8 +1,6 @@
 ../Drivers/CMSIS/Include/core_cm4.h:1684:22:__NVIC_EnableIRQ	16	static,ignoring_inline_asm
 ../Drivers/CMSIS/Include/core_cm4.h:1814:22:__NVIC_SetPriority	16	static
-../Drivers/Modules/I2C_DMA_Driver.c:27:16:mavg	16	static
-../Drivers/Modules/I2C_DMA_Driver.c:32:6:I2C_DMA_init	4	static
-../Drivers/Modules/I2C_DMA_Driver.c:86:6:I2C1_rx_DMA_stream0_init	8	static
-../Drivers/Modules/I2C_DMA_Driver.c:122:6:I2C1_BurstRead_Blocking	24	static
-../Drivers/Modules/I2C_DMA_Driver.c:173:6:DMA1_Stream0_IRQHandler	32	static
-../Drivers/Modules/I2C_DMA_Driver.c:201:6:DMA_i2c_rx_start	4	static
+../Drivers/Modules/I2C_DMA_Driver.c:28:16:mavg	16	static
+../Drivers/Modules/I2C_DMA_Driver.c:34:6:I2C1_rx_DMA_stream0_init	8	static
+../Drivers/Modules/I2C_DMA_Driver.c:70:6:DMA1_Stream0_IRQHandler	24	static
+../Drivers/Modules/I2C_DMA_Driver.c:150:6:DMA_i2c_rx_start	4	static
