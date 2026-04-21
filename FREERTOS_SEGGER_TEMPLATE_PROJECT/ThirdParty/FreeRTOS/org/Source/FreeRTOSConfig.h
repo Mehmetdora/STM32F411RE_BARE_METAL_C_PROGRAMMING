@@ -33,6 +33,9 @@
 	// Bu HZ değeri her 1 sn de kaç kesme olacağını belirler, burada 1MHz ile bir saniyede 1000 kesme olacaktır
 
 #define configMAX_PRIORITIES   					( 5 )							// MAX priorty level
+	// Task oluşturulurken bu max priority değerinden büyük veya eşit değerde bir task priority verilemez!!!
+
+   
 #define configMINIMAL_STACK_SIZE  				( ( unsigned short ) 130 )
 #define configTOTAL_HEAP_SIZE   				( ( size_t ) ( 75 * 1024 ) )
 #define configMAX_TASK_NAME_LEN   				( 10 )

@@ -1,4 +1,4 @@
 ../Drivers/Modules/UARTDriver.c:11:6:uart_init	1
-../Drivers/Modules/UARTDriver.c:85:6:uart_send_char	2
-../Drivers/Modules/UARTDriver.c:91:6:uart_send_string	2
-../Drivers/Modules/UARTDriver.c:97:9:uart_read_char	2
+../Drivers/Modules/UARTDriver.c:86:6:uart_send_char	2
+../Drivers/Modules/UARTDriver.c:122:6:uart_send_string	2
+../Drivers/Modules/UARTDriver.c:146:9:uart_read_char	2

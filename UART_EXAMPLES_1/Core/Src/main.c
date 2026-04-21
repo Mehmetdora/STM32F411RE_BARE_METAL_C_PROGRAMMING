@@ -106,12 +106,12 @@ int main(void)
 
   char gelen_data[2];
 
+  char name[] = "emirhan\n";
   while (1)
   {
     /* USER CODE END WHILE */
 
 
-	  char name[] = "emirhan\n";
 	  uart_send_string(name);
 	  HAL_Delay(1000);
 
