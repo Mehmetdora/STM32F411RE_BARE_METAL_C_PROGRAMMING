@@ -5,6 +5,7 @@
 
 #include "HELPER.h"
 #include "UARTDriver.h"
+#include "ADCDriver.h"
 
 
 
@@ -28,26 +29,25 @@ int main(void)
   uart_init();
   ADC_init(12);
 
+
+
   char buffer[30] = {0};
 
   while (1)
   {
-
-	  clear_array(buffer, 30);				// değerlerin üst üste yazılmasını önlemek için array sıfırla
-	  int2char(analog_val, buffer);		// ADC ile okunan değeri char türüne çevirlerek tutulduğu array e ekle
+	  clear_array(buffer, 30);			// array sıfırla
+	  int2char(analog_val, buffer);		// değeri char'a çevir
 
 	  HAL_Delay(5);
 
-	  uart_send_string_IT("ADC: ");      // Etiket
+	  uart_send_string_IT("/*");         // Serial Studio BAŞLANGIÇ işareti
 	  HAL_Delay(5);
 
-	  uart_send_string_IT(buffer);       // Sayısal değer
+	  uart_send_string_IT(buffer);       // Sayısal değer (Örn: 1245)
 	  HAL_Delay(5);
 
-	  uart_send_string_IT("\r\n");       // Satır sonu
+	  uart_send_string_IT("*/\r\n");     // Serial Studio BİTİŞ işareti ve Satır sonu
 	  HAL_Delay(5);
-
-
   }
 }
 
