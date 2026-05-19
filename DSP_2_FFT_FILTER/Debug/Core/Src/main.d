@@ -29,9 +29,10 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/CMSIS/Include/cmsis_compiler.h \
  /Users/mehmet_dora/Desktop/STM32/DSP_2_FFT_FILTER/Drivers/Modules/HELPER.h \
  /Users/mehmet_dora/Desktop/STM32/DSP_2_FFT_FILTER/Drivers/Modules/UARTDriver.h \
- /Users/mehmet_dora/Desktop/STM32/DSP_2_FFT_FILTER/Drivers/Modules/ADCDriver.h \
  /Users/mehmet_dora/Desktop/STM32/DSP_2_FFT_FILTER/Drivers/Modules/TimerDriver.h \
- /Users/mehmet_dora/Desktop/STM32/DSP_2_FFT_FILTER/Drivers/Modules/IIR_DSP.h
+ /Users/mehmet_dora/Desktop/STM32/DSP_2_FFT_FILTER/Drivers/Modules/IIR_DSP.h \
+ /Users/mehmet_dora/Desktop/STM32/DSP_2_FFT_FILTER/Drivers/Modules/FFT_DSP.h \
+ /Users/mehmet_dora/Desktop/STM32/DSP_2_FFT_FILTER/Drivers/Modules/ADC_DMA_Config.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
@@ -63,6 +64,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Drivers/CMSIS/Include/cmsis_compiler.h:
 /Users/mehmet_dora/Desktop/STM32/DSP_2_FFT_FILTER/Drivers/Modules/HELPER.h:
 /Users/mehmet_dora/Desktop/STM32/DSP_2_FFT_FILTER/Drivers/Modules/UARTDriver.h:
-/Users/mehmet_dora/Desktop/STM32/DSP_2_FFT_FILTER/Drivers/Modules/ADCDriver.h:
 /Users/mehmet_dora/Desktop/STM32/DSP_2_FFT_FILTER/Drivers/Modules/TimerDriver.h:
 /Users/mehmet_dora/Desktop/STM32/DSP_2_FFT_FILTER/Drivers/Modules/IIR_DSP.h:
+/Users/mehmet_dora/Desktop/STM32/DSP_2_FFT_FILTER/Drivers/Modules/FFT_DSP.h:
+/Users/mehmet_dora/Desktop/STM32/DSP_2_FFT_FILTER/Drivers/Modules/ADC_DMA_Config.h:

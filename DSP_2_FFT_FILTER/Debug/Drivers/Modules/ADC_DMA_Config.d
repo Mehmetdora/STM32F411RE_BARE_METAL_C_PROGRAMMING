@@ -1,4 +1,5 @@
-Drivers/Modules/ADCDriver.o: ../Drivers/Modules/ADCDriver.c \
+Drivers/Modules/ADC_DMA_Config.o: ../Drivers/Modules/ADC_DMA_Config.c \
+ ../Drivers/Modules/ADC_DMA_Config.h \
  ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h \
  ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f411xe.h \
  ../Drivers/CMSIS/Include/core_cm4.h \
@@ -25,7 +26,8 @@ Drivers/Modules/ADCDriver.o: ../Drivers/Modules/ADCDriver.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
- ../Drivers/Modules/ADCDriver.h ../Drivers/Modules/IIR_DSP.h
+ ../Drivers/Modules/IIR_DSP.h
+../Drivers/Modules/ADC_DMA_Config.h:
 ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h:
 ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f411xe.h:
 ../Drivers/CMSIS/Include/core_cm4.h:
@@ -52,5 +54,4 @@ Drivers/Modules/ADCDriver.o: ../Drivers/Modules/ADCDriver.c \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
-../Drivers/Modules/ADCDriver.h:
 ../Drivers/Modules/IIR_DSP.h:

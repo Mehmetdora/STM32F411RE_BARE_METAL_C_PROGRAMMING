@@ -6,10 +6,11 @@
 
 #include "HELPER.h"
 #include "UARTDriver.h"
-#include "ADCDriver.h"
 #include "TimerDriver.h"
 
 #include "IIR_DSP.h"
+#include "FFT_DSP.h"
+#include "ADC_DMA_Config.h"
 
 
 
@@ -20,6 +21,19 @@ static void MX_GPIO_Init(void);
 
 
 volatile uint16_t analog_val = 0;
+
+uint16_t adc_buffer[256];      	// DMA buraya yazar
+uint16_t adc_fft_buffer[256];	// FFT buraya uygulanır
+volatile uint8_t fft_ready_flag = 0;
+
+
+
+volatile float debug_raw_sample;
+volatile float debug_filtered_sample;
+volatile float debug_moto_power;
+volatile float debug_yaya_power;
+
+
 
 
 
@@ -36,14 +50,29 @@ int main(void)
 
   uart_init();
 
-  TimerDriver_init(4000);
-  ADC_init(12);
+
+  adc1_init();
+  dma2_init();
+
+  TimerDriver_init(200);
 
 
   while (1)
   {
 
+	  if(fft_ready_flag) {
+		  fft_ready_flag = 0;
 
+		  DetectionResult result = fft_process(adc_fft_buffer);
+
+
+		  if(result == DETECT_MOTORSIKLET) {
+			  uart_send_string("MOTOR\r\n");
+		  } else if(result == DETECT_YAYA) {
+			  uart_send_string("YAYA\r\n");
+		  }
+
+	  }
 
   }
 }

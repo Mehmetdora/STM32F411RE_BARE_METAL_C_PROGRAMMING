@@ -5,21 +5,24 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Drivers/Modules/ADCDriver.c \
+../Drivers/Modules/ADC_DMA_Config.c \
+../Drivers/Modules/FFT_DPS.c \
 ../Drivers/Modules/HELPER.c \
 ../Drivers/Modules/IIR_DSP.c \
 ../Drivers/Modules/TimerDriver.c \
 ../Drivers/Modules/UARTDriver.c 
 
 OBJS += \
-./Drivers/Modules/ADCDriver.o \
+./Drivers/Modules/ADC_DMA_Config.o \
+./Drivers/Modules/FFT_DPS.o \
 ./Drivers/Modules/HELPER.o \
 ./Drivers/Modules/IIR_DSP.o \
 ./Drivers/Modules/TimerDriver.o \
 ./Drivers/Modules/UARTDriver.o 
 
 C_DEPS += \
-./Drivers/Modules/ADCDriver.d \
+./Drivers/Modules/ADC_DMA_Config.d \
+./Drivers/Modules/FFT_DPS.d \
 ./Drivers/Modules/HELPER.d \
 ./Drivers/Modules/IIR_DSP.d \
 ./Drivers/Modules/TimerDriver.d \
@@ -33,7 +36,7 @@ Drivers/Modules/%.o Drivers/Modules/%.su Drivers/Modules/%.cyclo: ../Drivers/Mod
 clean: clean-Drivers-2f-Modules
 
 clean-Drivers-2f-Modules:
-	-$(RM) ./Drivers/Modules/ADCDriver.cyclo ./Drivers/Modules/ADCDriver.d ./Drivers/Modules/ADCDriver.o ./Drivers/Modules/ADCDriver.su ./Drivers/Modules/HELPER.cyclo ./Drivers/Modules/HELPER.d ./Drivers/Modules/HELPER.o ./Drivers/Modules/HELPER.su ./Drivers/Modules/IIR_DSP.cyclo ./Drivers/Modules/IIR_DSP.d ./Drivers/Modules/IIR_DSP.o ./Drivers/Modules/IIR_DSP.su ./Drivers/Modules/TimerDriver.cyclo ./Drivers/Modules/TimerDriver.d ./Drivers/Modules/TimerDriver.o ./Drivers/Modules/TimerDriver.su ./Drivers/Modules/UARTDriver.cyclo ./Drivers/Modules/UARTDriver.d ./Drivers/Modules/UARTDriver.o ./Drivers/Modules/UARTDriver.su
+	-$(RM) ./Drivers/Modules/ADC_DMA_Config.cyclo ./Drivers/Modules/ADC_DMA_Config.d ./Drivers/Modules/ADC_DMA_Config.o ./Drivers/Modules/ADC_DMA_Config.su ./Drivers/Modules/FFT_DPS.cyclo ./Drivers/Modules/FFT_DPS.d ./Drivers/Modules/FFT_DPS.o ./Drivers/Modules/FFT_DPS.su ./Drivers/Modules/HELPER.cyclo ./Drivers/Modules/HELPER.d ./Drivers/Modules/HELPER.o ./Drivers/Modules/HELPER.su ./Drivers/Modules/IIR_DSP.cyclo ./Drivers/Modules/IIR_DSP.d ./Drivers/Modules/IIR_DSP.o ./Drivers/Modules/IIR_DSP.su ./Drivers/Modules/TimerDriver.cyclo ./Drivers/Modules/TimerDriver.d ./Drivers/Modules/TimerDriver.o ./Drivers/Modules/TimerDriver.su ./Drivers/Modules/UARTDriver.cyclo ./Drivers/Modules/UARTDriver.d ./Drivers/Modules/UARTDriver.o ./Drivers/Modules/UARTDriver.su
 
 .PHONY: clean-Drivers-2f-Modules
 
