@@ -63,12 +63,13 @@ int main(void)
 	  if(fft_ready_flag) {
 		  fft_ready_flag = 0;
 
-		  DetectionResult result = fft_process(adc_fft_buffer);
+		  DetectionInfo result = fft_process(adc_fft_buffer);
 
+		  // result ile gelen cismin bilgileri harekete göre doğrulanmalı
 
-		  if(result == DETECT_MOTORSIKLET) {
+		  if(result.object_class == DETECT_MOTORSIKLET) {
 			  uart_send_string("MOTOR\r\n");
-		  } else if(result == DETECT_YAYA) {
+		  } else if(result.object_class == DETECT_YAYA) {
 			  uart_send_string("YAYA\r\n");
 		  }
 

@@ -11,7 +11,7 @@
 
 
 
-#define IIR_ALPHA 0.65f
+#define IIR_ALPHA 0.35f
 FirstOrderIIR filt;
 
 
@@ -112,13 +112,26 @@ void DMA2_Stream0_IRQHandler(void) {
         for(uint16_t i = 0; i < ADC_BUF_SIZE; i++) {
 
 
-        	float filtered = FirstOrderIIR_Update(&filt, adc_buffer[i]);
+        	//float filtered = FirstOrderIIR_Update(&filt, adc_buffer[i]);
+        	/*
+			adc_fft_buffer[i] = (uint16_t)(adc_buffer[i] < 0.0f ? 0.0f :
+										   adc_buffer[i] > 4095.0f ? 4095.0f :
+										   adc_buffer[i]);
+			*/
 
-        	adc_fft_buffer[i] = (uint16_t)(filtered < 0.0f ? 0.0f :
-										   filtered > 4095.0f ? 4095.0f :
-										   filtered);
+        	/*
+        	 * Şimdilik IIR filtresi çıkartıldı çünkü low-pass filtre olduğu için sinyaldeki
+        	 * ani high değerleri sönümlüyor. Bu da uzaktaki cisimden gelen zayıf sinyallerin
+        	 * daha da sönümlenmesine neden olabilir. FFT ye raw ADC verileri verilere uzaktaki
+        	 * zayıf sinyaller içinden zaten frekanslarına göre ayrım yapılıyor.
+        	 */
 
-        	//adc_fft_buffer[i] = adc_buffer[i];
+
+
+
+
+
+        	adc_fft_buffer[i] = adc_buffer[i];
 
         	debug_raw_sample = adc_buffer[ADC_BUF_SIZE - 1];
         	debug_filtered_sample = adc_fft_buffer[ADC_BUF_SIZE - 1];

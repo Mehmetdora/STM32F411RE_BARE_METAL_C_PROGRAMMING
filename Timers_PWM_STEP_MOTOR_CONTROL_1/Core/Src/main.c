@@ -105,31 +105,27 @@ int main(void)
 	// i değeri arttıkça duty yüzdesi de artar , i = 500 için ARR(1000)/500 den %50 duty olur.
 	// Her duty yüzdesi artımında 1 ms beklenir, göz bunu farkedemez. Yani 1sn de 1er ms adımlarla LED şiddeti artar.
 
-	/*
-	for(int i=0; i<1000; i++)
+
+	for(int i=500; i<1500; i++)
 	  {
 		  TIM2->CCR1 = i;
-		  HAL_Delay(1);
+		  HAL_Delay(10);
 	  }
 
 	  // Fade out
-	  for(int i=1000; i>0; i--)
+	  for(int i=2500; i>1500; i--)
 	  {
 		  TIM2->CCR1 = i;
-		  HAL_Delay(1);
+		  HAL_Delay(10);
 	  }
 
-	  */
 
 
 
-		TIM2->CCR1 = 1450;
+/*
+		TIM2->CCR1 = 1485;		// max değer, 1490 çalışmıyor
 		HAL_Delay(1000);
-
-
-		TIM2->CCR1 = 1600;
-		HAL_Delay(1000);
-
+*/
 
 
 

@@ -1638,9 +1638,6 @@ void TIM2_IRQHandler(void){
  8000b78:	6113      	str	r3, [r2, #16]
 
 
-
-
-		//SegmentDisplayDriver_toggle();
 		Stepper_HalfDriveMode(counter);
  8000b7a:	4b10      	ldr	r3, [pc, #64]	@ (8000bbc <TIM2_IRQHandler+0x64>)
  8000b7c:	681b      	ldr	r3, [r3, #0]
@@ -1654,24 +1651,24 @@ void TIM2_IRQHandler(void){
  8000b8c:	4a0b      	ldr	r2, [pc, #44]	@ (8000bbc <TIM2_IRQHandler+0x64>)
  8000b8e:	6013      	str	r3, [r2, #0]
 
-		if(counter == 2048){
+		if(counter == 2048){			// HALF Drive için yarım tur demek
  8000b90:	4b0a      	ldr	r3, [pc, #40]	@ (8000bbc <TIM2_IRQHandler+0x64>)
  8000b92:	681b      	ldr	r3, [r3, #0]
  8000b94:	f5b3 6f00 	cmp.w	r3, #2048	@ 0x800
  8000b98:	d10d      	bne.n	8000bb6 <TIM2_IRQHandler+0x5e>
 			Stepper_ToggleDirection();
  8000b9a:	f7ff fe6b 	bl	8000874 <Stepper_ToggleDirection>
-			GPIOA->ODR ^= (1UL << 5);
+			GPIOA->ODR ^= (1UL << 5);	// LED aç kapa
  8000b9e:	4b08      	ldr	r3, [pc, #32]	@ (8000bc0 <TIM2_IRQHandler+0x68>)
  8000ba0:	695b      	ldr	r3, [r3, #20]
  8000ba2:	4a07      	ldr	r2, [pc, #28]	@ (8000bc0 <TIM2_IRQHandler+0x68>)
  8000ba4:	f083 0320 	eor.w	r3, r3, #32
  8000ba8:	6153      	str	r3, [r2, #20]
-			counter = 0;
+			counter = 0;				// Counter reset
  8000baa:	4b04      	ldr	r3, [pc, #16]	@ (8000bbc <TIM2_IRQHandler+0x64>)
  8000bac:	2200      	movs	r2, #0
  8000bae:	601a      	str	r2, [r3, #0]
-			Stepper_SetSpeed(20);
+			Stepper_SetSpeed(20);		// TIM2 ARR değiştirerek motor hızının değiştirilmesi
  8000bb0:	2014      	movs	r0, #20
  8000bb2:	f7ff fe73 	bl	800089c <Stepper_SetSpeed>
 

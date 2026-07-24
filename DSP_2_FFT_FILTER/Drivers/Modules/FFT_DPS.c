@@ -8,81 +8,134 @@
 
 #include "FFT_DSP.h"
 #include "arm_math.h"
-#include <string.h>
 
-// --- Statik tamponlar (stack'e koyma, büyükler) ---
-static float32_t fft_input[FFT_SIZE];        // FFT girişi (float)
-static float32_t fft_output[FFT_SIZE];       // FFT çıkışı (karmaşık)
-static float32_t fft_magnitude[FFT_SIZE/2];  // Güç spektrumu
+static float32_t fft_input[FFT_SIZE];
+static float32_t fft_output[FFT_SIZE];
+static float32_t fft_mag[FFT_SIZE / 2];
 
-// CMSIS-DSP FFT nesnesi
-static arm_rfft_fast_instance_f32 fft_handler;
-static uint8_t fft_initialized = 0;
+static arm_rfft_fast_instance_f32 fft_instance;		// FFT için özel struct
+static uint8_t fft_is_ready = 0;					// ilk init kontrolü için
 
-// --- Hanning penceresi katsayıları ---
-static float32_t hanning_window[FFT_SIZE];
 
-static void init_hanning_window(void) {
-    for(int i = 0; i < FFT_SIZE; i++) {
-        // w(n) = 0.5 * (1 - cos(2π*n / (N-1)))
-        hanning_window[i] = 0.5f * (1.0f - arm_cos_f32(
-            2.0f * PI * i / (FFT_SIZE - 1)
-        ));
+
+
+
+
+
+DetectionInfo fft_process(uint16_t *adc_buffer)
+{
+    if (!fft_is_ready) {
+        arm_rfft_fast_init_f32(&fft_instance, FFT_SIZE);	// FFT struct init
+        fft_is_ready = 1;
     }
-}
 
-// --- Bölgedeki maksimum gücü bul ---
-static float32_t get_max_power(uint32_t bin_low, uint32_t bin_high) {
-    float32_t max_val = 0.0f;
-    for(uint32_t i = bin_low; i <= bin_high; i++) {
-        if(fft_magnitude[i] > max_val) {
-            max_val = fft_magnitude[i];
+
+    DetectionInfo info;
+
+
+    /*
+     * Burada mean(ortalama) ADC değeri bulunur, böylece FFT bu ortalama değeri
+     * baz alarak asıl değişimleri analiz eder. Bu işlem her buffer dolması sonrası
+     * yapılır , böylece sabit bir ortalama değer yerine veriye göre güncellenen ortalama
+     * değer bulunur.
+     */
+    float32_t mean = 0.0f;
+
+    // 1) Ortalama/DC değeri bul
+    for (int i = 0; i < FFT_SIZE; i++) {
+        mean += adc_buffer[i];
+    }
+    mean /= FFT_SIZE;
+
+
+
+
+
+    /*
+     * ADC den gelen buffer daki raw verilerden bu mean değeri çıkarılarak asıl değer
+     * değişimleri elde edilmiş olunur. Bu yeni değerler başka bir diziye kopyalanır.
+     */
+    for (int i = 0; i < FFT_SIZE; i++) {
+        fft_input[i] = (float32_t)adc_buffer[i] - mean;
+    }
+
+
+
+
+
+    // FFT ilgili diziye uygulanır ve sonuç fft_output dizisine kaydedilir
+    // sonraki 0 değeri zamansal veriden frekans değerine geçileceğini bildirir
+    arm_rfft_fast_f32(&fft_instance, fft_input, fft_output, 0);
+
+
+
+    /*
+     * FFT sonucu değerler karmaşık sayılardır, bu şekilde düzeltilir
+     * Sonrasında bu değerler arasında karşılaştırma yapılabilir.
+     */
+    /*
+    for (int k = 1; k < FFT_SIZE / 2; k++) {
+        float32_t real = fft_output[2 * k];
+        float32_t imag = fft_output[2 * k + 1];
+
+        fft_mag[k] = sqrtf(real * real + imag * imag);
+    }
+    */
+    arm_cmplx_mag_f32(fft_output, fft_mag, FFT_SIZE / 2);
+
+
+    // İlk değer ortalamayı temsil eder, bu nedenle ortalama 0 yapılır, 0 etrafında
+    // veriler değişecektir
+    fft_mag[0] = 0.0f;
+
+
+
+
+    // En baskın(büyük) frekansın bulunması
+    float32_t max_mag = 0.0f;
+    int max_bin = 0;		// bulunan frekansın indexi
+
+    for (int k = 1; k < FFT_SIZE / 2; k++) {
+
+    	float32_t freq = ((float32_t)k * SAMPLE_RATE) / FFT_SIZE;
+    	if (freq > 45.0f && freq < 55.0f)
+			continue;
+
+
+        if (fft_mag[k] > max_mag) {
+            max_mag = fft_mag[k];
+            max_bin = k;
         }
     }
-    return max_val;
-}
 
-// --- Ana fonksiyon: ADC tamponunu al, tespit sonucu döndür ---
-DetectionResult fft_process(uint16_t* adc_buffer) {
 
-    // İlk çağrıda başlat
-    if(!fft_initialized) {
-        arm_rfft_fast_init_f32(&fft_handler, FFT_SIZE);
-        init_hanning_window();
-        fft_initialized = 1;
+
+
+    /*
+     * FFT sonucunda en baskın sinyalin buffer içindeki indexi elde edilir, bu değerden
+     * Hz bilgisini öğrenebilmek için örnekleme hızı olan sample rate kullanılarak bulunur.
+     */
+    float32_t dominant_freq = ((float32_t)max_bin * SAMPLE_RATE) / FFT_SIZE;
+
+
+    info.dominant_freq_hz = dominant_freq;
+    info.peak_power = max_mag;
+    info.speed_kmh = dominant_freq / 19.49f;
+
+
+
+
+    // Bulunan Hz değeri belirlenen eşik değerlere göre karşılaştırılarak sonuç durum bulunur
+    if (max_mag < POWER_THRESHOLD) {
+    	info.object_class = DETECT_NOTHING;
+        return info;
     }
 
-    // 1. ADC → float dönüşümü + DC offset temizle + Hanning uygula
-    for(int i = 0; i < FFT_SIZE; i++) {
-        float32_t sample = (float32_t)adc_buffer[i] - ADC_DC_OFFSET;
-        fft_input[i] = sample * hanning_window[i];
+    if (dominant_freq >= MOTOR_FREQ_THRESHOLD_HZ) {
+		info.object_class = DETECT_MOTORSIKLET;
+		return info;
     }
 
-    // 2. FFT hesapla (gerçek → karmaşık)
-    arm_rfft_fast_f32(&fft_handler, fft_input, fft_output, 0);
-
-    // 3. Magnitude (güç) hesapla: sqrt(re² + im²)
-    arm_cmplx_mag_f32(fft_output, fft_magnitude, FFT_SIZE / 2);
-
-    // 4. bin[0] = DC, yok say
-    fft_magnitude[0] = 0.0f;
-
-    // 5. İlgili bölgelerdeki max gücü al
-    float32_t moto_power = get_max_power(MOTO_BIN_LOW, MOTO_BIN_HIGH);
-    float32_t yaya_power = get_max_power(YAYA_BIN_LOW, YAYA_BIN_HIGH);
-
-    debug_moto_power = moto_power;
-	debug_yaya_power = yaya_power;
-
-    // 6. Karar ver
-    if(moto_power > MOTO_POWER_THRESHOLD) {
-        return DETECT_MOTORSIKLET;
-    } else if(yaya_power > YAYA_POWER_THRESHOLD) {
-        return DETECT_YAYA;
-    }
-
-
-
-
-    return DETECT_NOTHING;
+    info.object_class = DETECT_YAYA;
+    return info;
 }

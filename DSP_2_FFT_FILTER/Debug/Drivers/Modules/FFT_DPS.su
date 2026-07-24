@@ -1,3 +1,1 @@
-../Drivers/Modules/FFT_DPS.c:25:13:init_hanning_window	16	static
-../Drivers/Modules/FFT_DPS.c:35:18:get_max_power	24	static
-../Drivers/Modules/FFT_DPS.c:46:17:fft_process	32	static
+../Drivers/Modules/FFT_DPS.c:25:15:fft_process	72	static
